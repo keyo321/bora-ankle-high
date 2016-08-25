@@ -1,0 +1,92 @@
+//surge-results.scss
+
+@import 'palette';
+@import 'typography';
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.surge {font-family: $body-font; position:relative;}
+.surge a {cursor: pointer;}
+.cf:before, .cf:after { content: " "; display: table;}
+.cf:after { clear: both;}
+.cf {
+*zoom: 1;
+}
+
+.loader { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor:wait;}
+.fullloader {position:fixed; z-index:20000;}
+.mask {z-index: 10000; position: absolute; top:0; left:0; -moz-opacity: 0.7; opacity: .70; filter: alpha(opacity=70); background-color: $white; width: 100%; height: 100%; zoom: 1;}
+.viewonly { z-index: 10001; text-align:center; font-weight:700; position:relative; color:$deepsea; margin-top:40px;}
+.loadimg { position: relative; width:100%; height:100%; }
+.loader .iload { position: absolute; top: 50%; left: 50%; margin-left:-40px; margin-top:-40px; z-index:1001 }
+.iload{background: url(https://surge.bombora.com/img/loader.gif); width:80px; height:80px;}
+.title {margin-bottom:25px;}
+.title .h1 {font-size: 37px; font-weight: 300; padding: 0 10px; text-align: left; color: $ocean;}
+.lb {display:inline-block; vertical-align:middle; padding: 7px 20px; font-size:14px; white-space:nowrap; vertical-align:middle; text-decoration:none; color:$white; border:1px solid transparent; -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08); -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08); box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08); -webkit-border-radius: 17px; -moz-border-radius: 17px; border-radius: 17px;}
+.lb:hover {text-decoration:none;}
+.lb-green {background-color:$seaweed; border-color:$seaweed;}
+.lb-green:not(.nohover):not(:disabled):hover {background-color:lighten($seaweed,5%); border-color:lighten($seaweed,5%);}
+.lb-orange {background-color:$bora-orange; border-color:$bora-orange;}
+.lb-orange:not(.nohover):hover {background-color:lighten($bora-orange, 5%); border-color:lighten($bora-orange, 5%);}
+
+.lb-big {padding: 10px 40px; font-size:20px;-webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px;}
+.frg {float: right;}
+
+.twrap.tbody  {-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+.twrap {padding:0 10px; border:1px solid $dolphin;}
+.twrap.theader, .twrap.tpager {border-color:transparent;}
+.domtable {width:100%; color:$shark; font-size:12px; font-weight:600;}
+.domtable th, .domdetail th{font-size:11px; color:$deepsea; font-weight:normal; padding:8px 5px 8px 0; text-align: left;}
+table.domtable {border-spacing: 0;}
+.domtable td {border-top:1px solid $dolphin; padding:25px 0; vertical-align: top; padding-right:5px;}
+.domtable tr:first-child td{border-top:none;}
+.wid-a {color:$sky; width:230px;}
+.wid-b {width:200px;}
+.wid-c {width:10%;}
+.wid-d {width:10%;}
+.wid-e {width:160px;}
+.wid-f {max-width: 200px; }
+.wid-f{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.wid-ts{text-align: center; font-style: italic;}
+.surge {width:1080px; margin: 0 auto;}
+.tc, .wid-c, .wid-d {text-align: center !important;}
+.jqmWindow {display: none; position: fixed; top: 20%; left: 50%; margin-left: -260px; width: 520px;-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1); -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1); box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);}
+.jqmOverlay { background-color: $white; opacity:.75 !important;}
+
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1;
+  width: expression(this.parentNode.offsetWidth+'px');
+  height: expression(this.parentNode.offsetHeight+'px');
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+.msgbox {-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+#errMsgOverlay { z-index: 30001; width: 510px; margin-left: -220px; top:25%; }
+.msgbox { z-index: 20001; border: 1px solid $dolphin; background:$white; color:$blacksand; font-size:13px;}
+.msgbox .inner { padding: 19px 19px 10px; }
+.olwrap {min-height:100px;}
+.overscroll {max-height:400px; overflow:auto;}
+.olclose { right: -14px; top: -14px; margin: 0;}
+.graybox { background:$dolphin; border:1px solid $shark;
+-webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,1);
+-moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,1);
+box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,1);
+}
+.pa {position: absolute;}
+.helpcircle, .helpcircle .fa { line-height: 30px; }
+.helpcircle {width:30px; height:30px; text-align:center; border:1px solid $dolphin; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; display:inline-block; color:#cbcbcb; font-size:14px; font-weight:700;}
+.helpcircle.orange {color:$bora-orange; border-color:$bora-orange;}
+.helptip {font-size:7px;}
+
+.orangecircle {border:1px solid $bora-orange; background-color:$bora-orange; color:$white;}
+.bluecircle {border:1px solid $ocean; background-color:$ocean; color:$white;}
+.bluecircle:hover {border:1px solid lighten($ocean,5%); background-color:lighten($ocean,5%); color:$white;}
+.bottom{text-align: center; margin:30px 0; font-size:22px;}
+#letstalk {width:316px; margin-left:-158px;}
