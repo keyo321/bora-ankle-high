@@ -1,0 +1,64 @@
+<script>
+  angular.module('topicselect', [])
+  .controller('TopicController', ['$http','$window', function($http, $window) {
+    var
+      max = 5,
+      resultsUrl = 'results.php?topics=',
+      //getTopicsUrl = '/gettopics.asp?callback=JSON_CALLBACK',
+      getTopicsUrl = 'https://sentry.bombora.com:443/v2/Surge/GetAllTopics?callback=JSON_CALLBACK', //production url
+      //getTopicsUrl = 'http://w12a-dev.bommie.co:999/v2/Surge/GetAllTopics?callback=JSON_CALLBACK', //dev url
+      topicSelect = this;
+
+    topicSelect.loadError = false;
+    topicSelect.selectedTopics = [];
+    topicSelect.showLoader = false;
+
+    function loadTopics() {
+      $http.jsonp(getTopicsUrl).
+      success(function(data, status, headers, config) {
+        if (data.Topics) {
+          topicSelect.topics = data.Topics;
+        }
+      }).
+      error(function(data, status, headers, config) {
+        topicSelect.loadError = true;
+      });
+    }
+
+    //cap 5
+    topicSelect.selectTopic = function(item) {
+      if (topicSelect.selectedTopics.length < max && !item.selected) {
+        topicSelect.selectedTopics.push(item);
+        item.selected = !item.selected;
+      }
+    };
+
+
+    topicSelect.removeTopic = function($index, item) {
+      var sIndex = ML.utils.getObjArrayIndex(topicSelect.topics, 'Id', item.Id); //get user index
+
+      topicSelect.topics[sIndex].selected = false;
+
+      topicSelect.selectedTopics.splice($index, 1); //remove user from array
+    };
+
+
+    topicSelect.runReport = function(){
+      if (topicSelect.selectedTopics.length == 0) {
+        alert("Please select at least one topic.")
+        return false;
+      }
+
+      topicSelect.showLoader = true;
+      var tNames= [], ids = [];
+      angular.forEach(topicSelect.selectedTopics, function(value,key) {
+        ids.push(value.Id);
+        tNames.push(value.Name);
+      });
+
+      $window.location=resultsUrl+encodeURIComponent(ids.join(',')) + '&names=' + encodeURIComponent(tNames.join(','));
+    };
+
+    loadTopics();
+  }]);
+</script>

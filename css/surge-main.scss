@@ -1,8 +1,15 @@
 // surge-main.scss
 
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 // modules
-@import "partials/surge-module";
-@import "partials/surge-results";
+@import "modules/surge-module";
+@import "modules/surge-results";
+@import "modules/hero";
 
 // colors & styles
 @import "partials/palette";

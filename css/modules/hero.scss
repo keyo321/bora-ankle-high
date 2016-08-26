@@ -1,0 +1,52 @@
+//surge-module.scss
+
+@import '../partials/palette';
+@import '../partials/typography';
+
+$hero-side-padding:150px;
+$hero-head-size:55px;
+$hero-paragraph-size:22px;
+
+.surge-hero {
+  background:url('../assets/orange-hero-bg.jpg');
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  width:100%;
+  margin:0;
+  padding:100px 20px;
+  font-family:$body-font;
+  .left-hero {
+    width:40%;
+    float:left;
+    padding:0px $hero-side-padding/2 0px $hero-side-padding;
+    color:$white;
+    h1 {
+      color:$white;
+      margin-top:30px;
+      font-weight:100;
+      font-size:$hero-head-size;
+      line-height:$hero-head-size+2px;
+      strong {
+        font-weight:bold;
+        display:block;
+      }
+    }
+    p {
+      border-top:1px solid rgba($white,.4);
+      margin-top:20px;
+      padding-top:20px;
+      font-size:$hero-paragraph-size;
+      line-height:$hero-paragraph-size+10px;
+      font-weight:300;
+    }
+  }
+  .right-hero {
+    width:60%;
+    float:right;
+    padding-right:$hero-side-padding;
+  }
+  .clearfix {
+    clear:both;
+  }
+}
