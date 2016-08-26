@@ -6,8 +6,8 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
-.surge {font-family: $body-font; position:relative;}
-.surge a {cursor: pointer;}
+.surge-results {font-family: $body-font; position:relative;}
+.surge-results a {cursor: pointer;}
 .cf:before, .cf:after { content: " "; display: table;}
 .cf:after { clear: both;}
 .cf {
@@ -49,7 +49,7 @@ table.domtable {border-spacing: 0;}
 .wid-f {max-width: 200px; }
 .wid-f{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .wid-ts{text-align: center; font-style: italic;}
-.surge {width:1080px; margin: 0 auto;}
+.surge-results {width:1080px; margin: 0 auto;}
 .tc, .wid-c, .wid-d {text-align: center !important;}
 .jqmWindow {display: none; position: fixed; top: 20%; left: 50%; margin-left: -260px; width: 520px;-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1); -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1); box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);}
 .jqmOverlay { background-color: $white; opacity:.75 !important;}
