@@ -21,6 +21,12 @@ $foot-box-head-size:35px;
     color:$white;
     text-align:center;
     position:relative;
+    @media (max-width:767px) {
+      display:block;
+      width:100%;
+      margin:0px;
+      padding:0px;
+    }
     .col-container {
       position:absolute;
       width:100%;
