@@ -1,3 +1,3 @@
-<?php include('components/header.html') ?>
-<?php include('components/search.php') ?>
-<?php include('components/footer.html') ?>
+<?php include('components/surge-header.html') ?>
+<?php include('components/surge-search.php') ?>
+<?php include('components/surge-footer.html') ?>

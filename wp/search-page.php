@@ -10,7 +10,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 
-<?php include ('components/search.php') ?>
+<?php include ('components/surge-search.php') ?>
 
 <div id="main-content">
 
@@ -74,5 +74,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 <?php endif; ?>
 
 </div> <!-- #main-content -->
+<?php include ('components/surge-footer.html') ?>
 
 <?php get_footer(); ?>

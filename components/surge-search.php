@@ -1,6 +1,7 @@
 <div class="surge-hero">
 	<div class="left-hero">
-		<h1>Discover <strong>Intent Data</strong></h1>
+		<h1>Surge</h1><span>=</span>
+		<h2>B2B Buying Intent</h2>
 		<p>
 			Surge intent data identifies which of your target companies are
 			<strong>'in market'</strong> for your products & services and signals

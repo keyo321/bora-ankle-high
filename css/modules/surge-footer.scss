@@ -1,0 +1,38 @@
+//surge-footer.scss
+
+@import '../partials/palette';
+@import '../partials/typography';
+
+
+
+.surge-footer {
+  padding: 2px 0px 2px 4px;
+  background: darken(#2980b9, 10%);
+  div {
+    box-sizing: border-box;
+    background: #2980b9;
+    width: calc(100%/3);
+    height: 200px;
+    float: left;
+    border-right: 4px solid darken(#2980b9, 10%);;
+    margin: 2px 0;
+  }
+}
+
+.surge-footer:before,
+.surge-footer:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.surge-footer:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.surge-footer {
+    *zoom: 1;
+}

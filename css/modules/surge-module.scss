@@ -5,6 +5,8 @@
 
 //wrapbox
 $wrapbox-width:45%;
+$wrapbox-height:414px;
+$blue-button-height:64px;
 $wrapbox-min-width:300px;
 $wrapbox-margin:$wrapbox-width*.01;
 
@@ -28,6 +30,12 @@ $row-font-size: 15px;
   .cf {
   *zoom: 1;
   width:100%;
+  @media (max-width:1024px) {
+    padding-left:10px;
+  }
+  @media (max-width:767px) {
+    padding:0px;
+  }
   &:after {
     clear:both;
   }
@@ -43,9 +51,15 @@ $row-font-size: 15px;
     margin:$wrapbox-margin;
     background:$white;
     overflow:hidden;
-    height:414px;
+    height:$wrapbox-height;
     border:none;
     @extend .wrapbox-shadow;
+    @media (max-width:767px) {
+      width:90%;
+      margin:10px auto;
+      display:block;
+      height:$wrapbox-height/1.5;
+    }
     .wrapbox-fields{
       position: relative;
       .fullinpt {
@@ -91,7 +105,7 @@ $row-font-size: 15px;
       color:$white;
       text-decoration: none;
       font-size:18px;
-      height:64px;
+      height:$blue-button-height;
       line-height: 64px;
       width:100%;
       text-align: center;
@@ -101,11 +115,15 @@ $row-font-size: 15px;
       }
     }
     .cust-ms {
-      height:352px;
+      height:($wrapbox-height)-($blue-button-height);
       overflow: auto;
-      max-height: 352px;
+      max-height: ($wrapbox-height)-($blue-button-height);
       padding: 0 0;
       margin: 0 0;
+      @media (max-width:767px) {
+        height:($wrapbox-height/1.5)-($blue-button-height);
+        max-height:($wrapbox-height/1.5)-($blue-button-height);
+      }
       li {
         position:relative;
         font-size: $row-font-size;
@@ -120,6 +138,9 @@ $row-font-size: 15px;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        @media (max-width:767px) {
+          padding: $box-row-padding/1.5;
+        }
         .selected {
           background-color: $ice;
           color: $deepsea;

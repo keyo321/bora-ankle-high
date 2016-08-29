@@ -3,48 +3,99 @@
 @import '../partials/palette';
 @import '../partials/typography';
 
-$hero-side-padding:150px;
-$hero-head-size:55px;
+$hero-side-padding:5%;
+$hero-head-size:65px;
+$hero-subhead-size:($hero-head-size)-20px;
 $hero-paragraph-size:22px;
+$hero-mobile-padding:20px;
+
+@keyframes HeroBG {
+  0% { background-position:0 0 }
+  50% { background-position:100% 0 }
+  100% { background-position:0 0 }
+}
 
 .surge-hero {
-  background:url('../assets/orange-hero-bg.jpg');
-  background-position:center center;
-  background-size:cover;
-  background-repeat:no-repeat;
+  // background:url('../assets/orange-hero-bg.jpg');
+  // background-position:center center;
+  // background-size:cover;
+  // background-repeat:no-repeat;
+  background: linear-gradient(to right, $ocean, lighten($ocean,20%));
+  background-size: 300% 100%;
+  animation: HeroBG 10s ease infinite;
+  overflow: hidden;
   width:100%;
   margin:0;
   padding:100px 20px;
   font-family:$body-font;
+  @media (max-width:1024px) {
+    padding:$hero-mobile-padding/2 0px $hero-mobile-padding*2 0px;
+  }
   .left-hero {
     width:40%;
     float:left;
     padding:0px $hero-side-padding/2 0px $hero-side-padding;
     color:$white;
+    @media (max-width:1024px) {
+      float:none;
+      padding:0px;
+      width:100%;
+      display:block;
+    }
     h1 {
       color:$white;
-      margin-top:30px;
-      font-weight:100;
+      margin-top:70px;
+      font-weight:bold;
+      padding-bottom:0px;
       font-size:$hero-head-size;
-      line-height:$hero-head-size+2px;
-      strong {
-        font-weight:bold;
-        display:block;
+      font-family:$header-font;
+      line-height:$hero-head-size+10px;
+      display:inline-block;
+      @media (max-width:1024px) {
+        margin:$hero-mobile-padding $hero-mobile-padding 0px $hero-mobile-padding;
       }
     }
+    h2 {
+      color:$white;
+      font-weight:bold;
+      padding-bottom:0px;
+      font-size:$hero-subhead-size;
+      font-family:$header-font;
+      line-height:$hero-subhead-size+2px;
+      @media (max-width:1024px) {
+        margin:0px $hero-mobile-padding;
+      }
+    }
+    span {
+      font-size:$hero-head-size;
+      color:$white;
+      font-weight:bold;
+      margin-left:20px;
+      line-height:$hero-head-size+15px
+    }
     p {
-      border-top:1px solid rgba($white,.4);
-      margin-top:20px;
-      padding-top:20px;
+      margin:10px 0;
       font-size:$hero-paragraph-size;
       line-height:$hero-paragraph-size+10px;
       font-weight:300;
+      @media (max-width:1024px) {
+        padding:0px $hero-mobile-padding;
+      }
     }
   }
   .right-hero {
     width:60%;
     float:right;
     padding-right:$hero-side-padding;
+    @media (max-width:1024px) {
+      float:none;
+      padding:0px;
+      width:100%;
+      display:block;
+    }
+    @media (max-width:1160px) {
+      padding:0px;
+    }
   }
   .clearfix {
     clear:both;
