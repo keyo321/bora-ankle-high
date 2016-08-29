@@ -1,0 +1,19 @@
+//app.scss
+@import '../partials/palette';
+@import '../partials/typography';
+
+//wrapbox
+$wrapbox-width:45%;
+$wrapbox-height:414px;
+$blue-button-height:64px;
+$wrapbox-min-width:300px;
+$wrapbox-margin:$wrapbox-width*.01;
+
+.wrapbox-style {
+  box-shadow: 0 6px 15px 0 rgba($black,0.14),0 11px 50px 0 rgba($black,0.09);
+  background-color:$white;
+  font-family: $body-font;
+  border:none;
+  overflow:hidden;
+  border-radius:6px;
+}

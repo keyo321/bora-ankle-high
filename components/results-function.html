@@ -1,0 +1,43 @@
+<script>
+  angular.module('topicselect', [])
+  .controller('TopicController', ['$http','$window', function($http, $window) {
+    var
+      $overlay,
+      max = 5,
+      //getReport = '/runreport.asp?callback=JSON_CALLBACK',
+      getReport = 'https://sentry.bombora.com:443/v2/Surge/RunSampleSurge?callback=JSON_CALLBACK', //production url
+      //getReport = 'http://w12a-dev.bommie.co:999/v2/Surge/RunSampleSurge?callback=JSON_CALLBACK', //dev url
+      topicSelect = this;
+
+    topicSelect.dataRows = [];
+    topicSelect.topicNames = ML.utils.getQueryString["names"].split(','); //topic names needs to pass these to sales force form
+    topicSelect.showLoader = false;
+    topicSelect.domainCount = 0;
+
+    function runReport(topicIds) {
+      if (topicIds != "") {
+        topicSelect.showLoader = true;
+        $http.jsonp(getReport, {params: {"topicIds": topicIds}}).
+        success(function(data, status, headers, config) {
+          if (data.results) {
+            topicSelect.dataRows = data.results;
+            topicSelect.domainCount = data.uniqueDomainsCount;
+          }
+          topicSelect.showLoader = false;
+        }).
+        error(function(data, status, headers, config) {
+          topicSelect.showLoader = false;
+        });
+      } else {
+        alert("No topics selected.")
+      }
+    }
+
+    topicSelect.letsTalk = function() {
+      $overlay.jqmShow();
+    };
+
+    $overlay = $('#letstalk').jqm();
+    runReport(ML.utils.getQueryString["topics"]);
+  }]);
+</script>

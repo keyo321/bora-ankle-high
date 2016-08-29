@@ -2,3 +2,14 @@
 
 $body-font: 'Open Sans', sans-serif;
 $header-font: 'Francois One', sans-serif;
+
+//table rows
+
+$box-icon-size: 16px;
+$row-font-size: 15px;
+
+.row-type {
+  font-size: $row-font-size;
+  font-weight: 600;
+  line-height: normal;
+}

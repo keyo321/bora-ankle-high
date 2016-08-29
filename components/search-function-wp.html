@@ -3,7 +3,7 @@
   .controller('TopicController', ['$http','$window', function($http, $window) {
     var
       max = 5,
-      resultsUrl = 'http://bomboracorp.staging.wpengine.com/wp-content/themes/Divi/surge-results.php?topics=',
+      resultsUrl = 'http://bomboracorp.staging.wpengine.com/results-surge/?topics=',
       //getTopicsUrl = '/gettopics.asp?callback=JSON_CALLBACK',
       getTopicsUrl = 'https://sentry.bombora.com:443/v2/Surge/GetAllTopics?callback=JSON_CALLBACK', //production url
       //getTopicsUrl = 'http://w12a-dev.bommie.co:999/v2/Surge/GetAllTopics?callback=JSON_CALLBACK', //dev url

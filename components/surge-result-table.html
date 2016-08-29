@@ -1,115 +1,68 @@
-<div ng-app="topicselect" ng-controller="TopicController as topicSelect" class="surge-results ng-cloak" ng-show="!topicSelect.loadError">
-  <div class="title">
-    <a ng-click="topicSelect.letsTalk()"  class="lb lb-green frg" style="margin:10px 50px 0 0;" ng-show="topicSelect.domainCount > 0">Download</a>
-    <div class="h1">Surge Report</div>
+<div class="surge-results-hero">
+  <div class="left-hero">
+    <h2>Your Target Accounts</h2>
+    <p>These companies are in market and actively researching the topics below</p>
+    <ul class="topic-list" ng-repeat="topicSelect.topicNames">
+      <li ng-if="$index < 5">Topic 1</li>
+      <li ng-if="$index < 5">Topic 2</li>
+      <li ng-if="$index < 5">Topic 3</li>
+      <li ng-if="$index < 5">Topic 4</li>
+      <li ng-if="$index < 5">Topic 5</li>
+    </ul>
   </div>
-
-  <div class="cf">
-    <div class="twrap theader mt10">
-      <table class="domtable">
-        <tbody><tr>
-          <th class="wid-a">Company Name</th>
-          <th class="wid-b">Domain</th>
-          <th class="wid-c">Avg. Score</th>
-          <th class="wid-d">Surging Topics</th>
-          <th class="wid-e">Size</th>
-          <th class="wid-f">Industry</th>
-        </tr>
-      </tbody></table>
-    </div>
-
-    <div class="twrap tbody">
-      <div class="tc" ng-show="topicSelect.dataRows.length == 0" style="font-size:12px; padding:15px;">
-        No companies found.
-      </div>
-      <table class="domtable">
-        <tbody>
-          <tr ng-repeat="i in topicSelect.dataRows">
-            <td class="wid-a" ng-if="$index < 5">{{i.companyName | limitTo: 30 }}{{i.companyName.length > 30 ? '&hellip;' : ''}}</td>
-            <td class="wid-b" ng-if="$index < 5">{{i.companyDomain}}</td>
-            <td class="wid-ts" colspan="2" ng-if="$index>=5">Login to see all results</td>
-            <td class="wid-c">{{i.avgScore}}</td>
-            <td class="wid-d">{{i.numMatchedTopics}}</td>
-            <td class="wid-e">{{i.companySize.replace(' Employees', '')}}</td>
-            <td class="wid-f">{{i.companyIndustry}}</td>
+  <div class="right-hero">
+    <div ng-app="topicselect" ng-controller="TopicController as topicSelect" class="surge-results ng-cloak" ng-show="!topicSelect.loadError">
+    <div class="cf">
+      <div class="twrap theader mt10">
+        <table class="domtable header-table">
+          <tbody><tr>
+            <th class="wid-1">Company Name</th>
+            <th class="wid-2">Avg. Score</th>
+            <th class="wid-3">Surging Topics</th>
           </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="bottom" ng-show="topicSelect.domainCount > 0">
-      <div style="color:#a4bdcd;">{{topicSelect.domainCount | number}} more results available</div>
-      <div style="color:#556f80;">Get in touch with us to view them all.</div>
-      <a href="http://bombora.com/contact/" class="lb lb-orange lb-big" style="margin-top:20px;">Let's talk</a>
-    </div>
-  </div>
-  <div class="loader overlayloader"ng-show="topicSelect.showLoader">
-    <div class="mask"></div>
-    <div class="loadimg">
-      <span class="iload"></span>
-    </div>
-  </div>
-
-  <div id="letstalk" class="jqmWindow msgbox">
-    <div class="inner cf pr tc">
-      <img src="http://bombora.com/wp-content/uploads/2016/06/surge-sample.png"/>
-      <div style="margin:15px; font-size:18px; color:#556f80;">Only registered<br/> partners can download<br/>or activate a report.</div>
-      <a href="http://bombora.com/contact/" class="lb lb-orange lb-big">Get in touch</a>
-      <div style="margin:25px;"><a href="#" class="jqmClose" style="color:#556f80;">Not right now</a></div>
-    </div>
-  </div>
-  <div id="errMsgOverlay" class="jqmWindow msgbox">
-    <div class="inner cf pr">
-      <div class="pa olclose"><a href="#" class="jqmClose"><span class="helpcircle bluecircle"><i class="fa fa-close"></i></span></a></div>
-      <div class="olwrap">
-        <div class="msg"></div>
+        </tbody></table>
       </div>
-      <div class="tr pb15">
+
+      <div class="twrap tbody">
+        <div class="tc" ng-show="topicSelect.dataRows.length == 0" style="font-size:12px; padding:15px;">
+          No companies found.
+        </div>
+        <table class="domtable results-table">
+          <tbody>
+            <tr ng-repeat="i in topicSelect.dataRows">
+              <td class="wid-1" ng-if="$index < 5">{{i.companyName | limitTo: 5 }}{{i.companyName.length > 30 ? '&hellip;' : ''}}</td>
+              <td class="wid-2" ng-if="$index < 5">{{i.avgScore}}</td>
+              <td class="wid-3" ng-if="$index < 5">{{i.numMatchedTopics}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bottom" ng-show="topicSelect.domainCount > 0">
+        {{topicSelect.domainCount | number}} more results available
       </div>
     </div>
+
+    <div class="loader overlayloader"ng-show="topicSelect.showLoader">
+      <div class="mask"></div>
+      <div class="loadimg">
+        <span class="iload"></span>
+      </div>
+    </div>
+
+    <div id="errMsgOverlay" class="jqmWindow msgbox">
+      <div class="inner cf pr">
+        <div class="pa olclose"><a href="#" class="jqmClose"><span class="helpcircle bluecircle"><i class="fa fa-close"></i></span></a></div>
+        <div class="olwrap">
+          <div class="msg"></div>
+        </div>
+        <div class="tr pb15">
+        </div>
+      </div>
+    </div>
+
+  </div>
   </div>
 </div>
 
-<script>
-  angular.module('topicselect', [])
-  .controller('TopicController', ['$http','$window', function($http, $window) {
-    var
-      $overlay,
-      max = 5,
-      //getReport = '/runreport.asp?callback=JSON_CALLBACK',
-      getReport = 'https://sentry.bombora.com:443/v2/Surge/RunSampleSurge?callback=JSON_CALLBACK', //production url
-      //getReport = 'http://w12a-dev.bommie.co:999/v2/Surge/RunSampleSurge?callback=JSON_CALLBACK', //dev url
-      topicSelect = this;
-
-    topicSelect.dataRows = [];
-    topicSelect.topicNames = ML.utils.getQueryString["names"].split(','); //topic names needs to pass these to sales force form
-    topicSelect.showLoader = false;
-    topicSelect.domainCount = 0;
-
-    function runReport(topicIds) {
-      if (topicIds != "") {
-        topicSelect.showLoader = true;
-        $http.jsonp(getReport, {params: {"topicIds": topicIds}}).
-        success(function(data, status, headers, config) {
-          if (data.results) {
-            topicSelect.dataRows = data.results;
-            topicSelect.domainCount = data.uniqueDomainsCount;
-          }
-          topicSelect.showLoader = false;
-        }).
-        error(function(data, status, headers, config) {
-          topicSelect.showLoader = false;
-        });
-      } else {
-        alert("No topics selected.")
-      }
-    }
-
-    topicSelect.letsTalk = function() {
-      $overlay.jqmShow();
-    };
-
-    $overlay = $('#letstalk').jqm();
-    runReport(ML.utils.getQueryString["topics"]);
-  }]);
-</script>
+<?php include('results-function.html') ?>

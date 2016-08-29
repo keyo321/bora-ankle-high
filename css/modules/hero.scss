@@ -101,3 +101,103 @@ $hero-mobile-padding:20px;
     clear:both;
   }
 }
+
+.surge-results-hero {
+  // background:url('../assets/orange-hero-bg.jpg');
+  // background-position:center center;
+  // background-size:cover;
+  // background-repeat:no-repeat;
+  background: linear-gradient(to right, #FDCD3E, #FB9E1D);
+  background-size: 300% 100%;
+  animation: HeroBG 10s ease infinite;
+  overflow: hidden;
+  width:100%;
+  margin:0;
+  padding:100px 20px;
+  font-family:$body-font;
+  @media (max-width:1024px) {
+    padding:$hero-mobile-padding/2 0px $hero-mobile-padding*2 0px;
+  }
+  .left-hero {
+    width:40%;
+    float:left;
+    padding:0px $hero-side-padding/2 0px $hero-side-padding;
+    color:$white;
+    @media (max-width:1024px) {
+      float:none;
+      padding:0px;
+      width:100%;
+      display:block;
+    }
+    ul {
+      list-style-type:none;
+      border-left:3px $white solid;
+      padding-left:20px;
+      li {
+        color:$white;
+        margin-top:20px;
+        font-size:16px;
+        font-weight:bold;
+      }
+    }
+    h1 {
+      color:$white;
+      margin-top:70px;
+      font-weight:bold;
+      padding-bottom:0px;
+      font-size:$hero-head-size;
+      font-family:$header-font;
+      line-height:$hero-head-size+10px;
+      display:inline-block;
+      @media (max-width:1024px) {
+        margin:$hero-mobile-padding $hero-mobile-padding 0px $hero-mobile-padding;
+      }
+    }
+    h2 {
+      color:$white;
+      font-weight:bold;
+      padding-bottom:0px;
+      font-size:$hero-subhead-size;
+      font-family:$header-font;
+      line-height:$hero-subhead-size+2px;
+      margin-top:40px;
+      @media (max-width:1024px) {
+        margin:0px $hero-mobile-padding;
+      }
+    }
+    span {
+      font-size:$hero-head-size;
+      color:$white;
+      font-weight:bold;
+      margin-left:20px;
+      line-height:$hero-head-size+15px
+    }
+    p {
+      margin:10px 0;
+      font-size:$hero-paragraph-size;
+      line-height:$hero-paragraph-size+10px;
+      font-weight:300;
+      @media (max-width:1024px) {
+        padding:0px $hero-mobile-padding;
+      }
+    }
+  }
+  .right-hero {
+    width:60%;
+    float:right;
+    padding-right:$hero-side-padding;
+    @media (max-width:1024px) {
+      float:none;
+      padding:0px;
+      width:100%;
+      display:block;
+      padding:$hero-mobile-padding;
+    }
+    @media (max-width:1160px) {
+      padding:0px;
+    }
+  }
+  .clearfix {
+    clear:both;
+  }
+}
