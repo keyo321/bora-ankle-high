@@ -3,19 +3,64 @@
 @import '../partials/palette';
 @import '../partials/typography';
 
+$foot-box-height:400px;
+$foot-box-head-size:35px;
 
+.foot-shadow {
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
 
 .surge-footer {
-  padding: 2px 0px 2px 4px;
-  background: darken(#2980b9, 10%);
+  padding:0px;
+  margin:0px;
   div {
     box-sizing: border-box;
-    background: #2980b9;
     width: calc(100%/3);
-    height: 200px;
+    height: $foot-box-height;
     float: left;
-    border-right: 4px solid darken(#2980b9, 10%);;
-    margin: 2px 0;
+    color:$white;
+    text-align:center;
+    position:relative;
+    .col-container {
+      position:absolute;
+      width:100%;
+      top:0;
+      bottom:0px;
+      background-color:rgba($black,0);
+      -webkit-transition: background-color 1s; /* Safari */
+      transition: background-color 1s;
+      &:hover {
+        background-color:rgba($black,.5);
+      }
+    }
+    h1 {
+      font-family:$header-font;
+      font-size:$foot-box-head-size;
+      line-height:$foot-box-head-size+4px;
+      color:$white;
+      text-align:center;
+      display:block;
+      margin-top:($foot-box-height/2)-$foot-box-head-size;
+      @extend .foot-shadow;
+    }
+  }
+  .col-1 {
+    background:url('../assets/foot-bg-1.jpg');
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  .col-2 {
+    background:url('../assets/foot-bg-2.jpg');
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+  .col-3 {
+    background:url('../assets/foot-bg-3.jpg');
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
   }
 }
 
