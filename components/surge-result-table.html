@@ -1,7 +1,7 @@
-<div class="surge-results-hero">
+<div class="surge-results-hero" ng-app="topicselect" ng-controller="TopicController as topicSelect" >
   <div class="right-hero">
     <h2>Your Target Accounts</h2>
-    <div ng-app="topicselect" ng-controller="TopicController as topicSelect" class="surge-results ng-cloak" ng-show="!topicSelect.loadError">
+    <div class="surge-results ng-cloak" ng-show="!topicSelect.loadError">
     <div class="cf">
       <div class="twrap theader mt10">
         <table class="domtable header-table">
@@ -19,10 +19,10 @@
         </div>
         <table class="domtable results-table">
           <tbody>
-            <tr ng-repeat="i in topicSelect.dataRows">
-              <td class="wid-1" ng-if="$index < 5">{{i.companyName | limitTo: 5 }}{{i.companyName.length > 30 ? '&hellip;' : ''}}</td>
-              <td class="wid-2" ng-if="$index < 5">{{i.avgScore}}</td>
-              <td class="wid-3" ng-if="$index < 5">{{i.numMatchedTopics}}</td>
+            <tr ng-repeat="i in topicSelect.dataRows | limitTo:5">
+              <td class="wid-1">{{i.companyName}}{{i.companyName.length > 30 ? '&hellip;' : ''}}</td>
+              <td class="wid-2">{{i.avgScore}}</td>
+              <td class="wid-3">{{i.numMatchedTopics}}</td>
             </tr>
           </tbody>
         </table>
@@ -56,12 +56,8 @@
   <div class="left-hero">
     <h2>Your Target Accounts</h2>
     <p>These companies are in market and actively researching the topics below</p>
-    <ul class="topic-list" ng-repeat="topicSelect.topicNames">
-      <li ng-if="$index < 5">Topic 1</li>
-      <li ng-if="$index < 5">Topic 2</li>
-      <li ng-if="$index < 5">Topic 3</li>
-      <li ng-if="$index < 5">Topic 4</li>
-      <li ng-if="$index < 5">Topic 5</li>
+    <ul class="topic-list">
+      <li ng-repeat="i in topicSelect.topicNames">{{i}}</li>      
     </ul>
   </div>
 </div>

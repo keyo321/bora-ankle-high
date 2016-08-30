@@ -52,6 +52,7 @@ $table-border:1px solid $dolphin;
     font-weight:600;
     .wid-1 {
       color:$sky;
+      text-transform: capitalize;
     }
     .wid-2, .wid-3 {
       color:$deepsea;
