@@ -1,16 +1,6 @@
 <div class="surge-results-hero">
-  <div class="left-hero">
-    <h2>Your Target Accounts</h2>
-    <p>These companies are in market and actively researching the topics below</p>
-    <ul class="topic-list" ng-repeat="topicSelect.topicNames">
-      <li ng-if="$index < 5">Topic 1</li>
-      <li ng-if="$index < 5">Topic 2</li>
-      <li ng-if="$index < 5">Topic 3</li>
-      <li ng-if="$index < 5">Topic 4</li>
-      <li ng-if="$index < 5">Topic 5</li>
-    </ul>
-  </div>
   <div class="right-hero">
+    <h2>Your Target Accounts</h2>
     <div ng-app="topicselect" ng-controller="TopicController as topicSelect" class="surge-results ng-cloak" ng-show="!topicSelect.loadError">
     <div class="cf">
       <div class="twrap theader mt10">
@@ -62,6 +52,17 @@
     </div>
 
   </div>
+  </div>
+  <div class="left-hero">
+    <h2>Your Target Accounts</h2>
+    <p>These companies are in market and actively researching the topics below</p>
+    <ul class="topic-list" ng-repeat="topicSelect.topicNames">
+      <li ng-if="$index < 5">Topic 1</li>
+      <li ng-if="$index < 5">Topic 2</li>
+      <li ng-if="$index < 5">Topic 3</li>
+      <li ng-if="$index < 5">Topic 4</li>
+      <li ng-if="$index < 5">Topic 5</li>
+    </ul>
   </div>
 </div>
 

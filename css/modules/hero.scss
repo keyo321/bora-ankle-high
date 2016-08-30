@@ -133,6 +133,9 @@ $hero-mobile-padding:20px;
       list-style-type:none;
       border-left:3px $white solid;
       padding-left:20px;
+      @media (max-width:1024px) {
+        margin-left:$hero-mobile-padding;
+      }
       li {
         color:$white;
         margin-top:20px;
@@ -162,7 +165,7 @@ $hero-mobile-padding:20px;
       line-height:$hero-subhead-size+2px;
       margin-top:40px;
       @media (max-width:1024px) {
-        margin:0px $hero-mobile-padding;
+        display:none;
       }
     }
     span {
@@ -186,6 +189,19 @@ $hero-mobile-padding:20px;
     width:60%;
     float:right;
     padding-right:$hero-side-padding;
+    h2 {
+      color:$white;
+      font-weight:bold;
+      padding-bottom:0px;
+      font-size:$hero-subhead-size;
+      font-family:$header-font;
+      line-height:$hero-subhead-size+2px;
+      display:none;
+      @media (max-width:1024px) {
+        margin:$hero-mobile-padding;
+        display:block;
+      }
+    }
     @media (max-width:1024px) {
       float:none;
       padding:0px;

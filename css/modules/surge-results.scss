@@ -80,6 +80,9 @@ $table-border:1px solid $dolphin;
     vertical-align: top;
     padding-right:5px;
     @extend .row-type;
+    @media (max-width:767px) {
+      padding: $box-row-padding/1.5;
+    }
   }
   } //end .cf
   .loader {
